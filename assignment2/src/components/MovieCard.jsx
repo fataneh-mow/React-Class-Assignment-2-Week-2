@@ -16,7 +16,7 @@ export default function MovieCard ({title, info}) {
 
     return (
         <div className="bg-red-950 mx-auto w-1/2 rounded-md shadow-lg py-4 flex justify-between">
-            <div className="flex items-center px-4">
+            <div className="flex items-center px-6">
                 <button
                     onClick={HandleWatchMovie}
                 >
@@ -29,13 +29,13 @@ export default function MovieCard ({title, info}) {
                     }
                 </button>
                 <div className="px-4">
-                    <h1 className="text-red-500 text-xl font-semibold">{title}</h1>
+                    <h1 className="text-red-500 text-xl">{title}</h1>
                     <p className="text-red-500 text-md">{info}</p>
                 </div>
             </div>
-            <div className="mt-3 px-4">
+            <div className="mt-3 px-5">
                 <button>
-                    <MdOutlineDelete className="text-red-500" size={24} />
+                    <MdOutlineDelete className="text-red-500" size={20} />
                 </button>
             </div>
            
