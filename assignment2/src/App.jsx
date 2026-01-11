@@ -1,12 +1,18 @@
 import './App.css'
 import MovieCard from './components/MovieCard'
 import Header from './components/Header'
+import FilterMovies from './components/FilterMovies'
 
 export default function App () {
   return (
     <div className='my-6'>
-      <Header title={"My Movie List"} subTitle={"A React Application for movie watch list managment!"}></Header>
-      <MovieCard title={"Strange Things"} info={"This film was made perfectly"}></MovieCard>
+      <div>
+        <Header title={"My Movie List"} subTitle={"A React Application for movie watch list managment!"}></Header>
+      </div>
+      <div className='grid grid-rows-2'>
+        <FilterMovies />
+        <MovieCard title={"Strange Things"} info={"This film was made perfectly"}></MovieCard>
+      </div>
     </div>
   )
 }
