@@ -1,0 +1,7 @@
+:root{
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #000000 10.6%, rgb(116, 0, 0) 97.7%);
+    background-repeat: no-repeat;
+}
