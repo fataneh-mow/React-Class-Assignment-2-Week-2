@@ -15,7 +15,7 @@ export default function MovieCard ({title, info}) {
    }
 
     return (
-        <div className="bg-red-950 mx-auto w-1/2 rounded-md shadow-lg py-4 flex justify-between">
+        <div className="bg-red-950 mx-auto w-1/2 py-2 rounded-md shadow-lg flex justify-between">
             <div className="flex items-center px-6">
                 <button
                     onClick={HandleWatchMovie}
