@@ -5,11 +5,9 @@ export default function FilterMovies () {
                 <select name="filter" defaultValue="All" 
                     className="bg-red-100 rounded-md custom-select outline-none appearance-none"
                 >
-                    <span className="">
-                        <option value="All" className="">All</option>
-                        <option value="watched">Watched</option>
-                        <option value="unwatched">Unwatched</option>
-                    </span>
+                    <option value="All">All</option>
+                    <option value="watched">Watched</option>
+                    <option value="unwatched">Unwatched</option>
                 </select>
             </form>
         </div>
