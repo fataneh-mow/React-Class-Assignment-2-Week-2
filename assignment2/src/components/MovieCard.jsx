@@ -6,20 +6,19 @@ import { MdOutlineDelete } from "react-icons/md";
 
 
 
-export default function MovieCard ({title, info}) {
+export default function MovieCard ({id, title, info, genre, onDelete}) {
     const [watched, setWatched] = useState(false)
-    const [deleted, setDeleted] = useState(false)
 
    function HandleWatchMovie () {
-    setWatched(prev => !prev)
+    setWatched(true)
    }
 
-   function HandleDelete () {
-    setDeleted(!deleted)
+   function HandleDeleteMovie () {
+    onDelete(id)
    }
 
     return (
-        <div className="bg-red-100 mx-auto w-1/2 py-2 rounded-md shadow-lg flex justify-between">
+        <div className="bg-red-100 mx-auto w-1/2 py-4 rounded-md shadow-lg flex justify-between">
             <div className="flex items-center px-6">
                 <button
                     onClick={HandleWatchMovie}
@@ -33,13 +32,20 @@ export default function MovieCard ({title, info}) {
                     }
                 </button>
                 <div className="px-4">
-                    <h1 className="text-red-800 text-xl">{title}</h1>
-                    <p className="text-red-800 text-md">{info}</p>
+                    <h1 className="text-red-800 text-xl">{title || "No title"}</h1>
+                    <div>
+                        <span className="flex justify-between gap-4">
+                            <p className="text-red-800 text-md">{info || "No information"}</p>
+                            <span className="bg-red-400 text-red-800 px-4 rounded-lg">
+                                {genre || "No genre"}
+                            </span>
+                        </span>
+                    </div>
                 </div>
             </div>
             <div className="mt-3 px-5">
                 <button
-                    onClick={HandleDelete}
+                    onClick={HandleDeleteMovie}
                 >
                     <MdOutlineDelete className="text-red-800" size={20} />
                 </button>
