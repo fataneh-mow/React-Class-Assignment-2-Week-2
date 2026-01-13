@@ -1,13 +1,15 @@
 export default function FilterMovies () {
     return (
-        <div className="w-1/2 mx-auto">
-            <form className="">
+        <div className="">
+            <form className="bg-red-100 rounded-md py-[0.1rem]">
                 <select name="filter" defaultValue="All" 
-                    className="bg-red-100 px-3 rounded-md custom-select outline-none appearance-none"
+                    className="bg-red-100 rounded-md custom-select outline-none appearance-none"
                 >
-                    <option value="All">All</option>
-                    <option value="watched">Watched</option>
-                    <option value="unwatched">Unwatched</option>
+                    <span className="">
+                        <option value="All" className="">All</option>
+                        <option value="watched">Watched</option>
+                        <option value="unwatched">Unwatched</option>
+                    </span>
                 </select>
             </form>
         </div>
