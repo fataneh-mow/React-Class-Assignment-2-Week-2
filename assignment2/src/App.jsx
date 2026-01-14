@@ -3,6 +3,7 @@ import MovieCard from './components/MovieCard'
 import Header from './components/Header'
 import FilterMovies from './components/FilterMovies'
 import AddMovie from './components/AddMovie'
+import MovieStatus from './components/MovieStatus'
 import { useState } from 'react'
 
 export default function App () {
@@ -41,6 +42,9 @@ export default function App () {
         <span className='ml-auto'>
           <FilterMovies />
         </span>
+      </div>
+      <div className='my-4'>
+        <MovieStatus />
       </div>
       <div className='grid grid-rows gap-4'>
         {movies.map(movie => (
