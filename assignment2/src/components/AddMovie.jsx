@@ -97,7 +97,7 @@ export default function AddMovie ({onAddMovie}) {
                                             className="bg-red-800 text-red-50 rounded-md shadow-md py-1 hover:bg-red-900 transition ease-in "
                                             type="submit"
                                         >
-                                            Save
+                                            Add Movie
                                         </button>
                                         
                                     </div>
