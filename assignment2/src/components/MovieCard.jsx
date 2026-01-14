@@ -36,7 +36,7 @@ export default function MovieCard ({id, title, info, genre, onDelete}) {
                     <div>
                         <span className="flex justify-between gap-4">
                             <p className="text-red-800 text-md">{info || "No information"}</p>
-                            <span className="bg-red-400 text-red-800 px-4 rounded-lg">
+                            <span className="bg-red-50 text-red-800 px-4 rounded-lg">
                                 {genre || "No genre"}
                             </span>
                         </span>
