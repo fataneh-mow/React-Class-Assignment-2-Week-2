@@ -7,20 +7,27 @@ import MovieStatus from './components/MovieStatus'
 import { useState } from 'react'
 
 export default function App () {
+  const [movies, setMovies] = useState([
+    // {
+    //   id: createId(),
+    //   title: "Strange Things",
+    //   info: "This film was made perfectly",
+    //   genre: "Drama",
+    //   watched: false
+    // }
+  ])
+  const [filter, setFilter] = useState("All")
+  
+  const wathcedCount = movies.filter(movie => movie.watched).length
+  const unwatchedCount = movies.filter(movie => !movie.watched).length
+  const totalCount = movies.length
 
+ 
   function createId() {
     if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
     return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
   }
 
-  const [movies, setMovies] = useState([
-    {
-      id: createId(),
-      title: "Strange Things",
-      info: "This film was made perfectly",
-      genre: "Drama"
-    }
-  ])
 
   function HandleAddMovie(newMovie) {
     setMovies(prevMovies => [...prevMovies, newMovie]);
@@ -32,6 +39,22 @@ export default function App () {
     );
   }
 
+  function handleMarkWatched(id) {
+    setMovies(prev =>
+      prev.map(movie =>
+        movie.id === id
+          ? { ...movie, watched: true }
+          : movie
+      )
+    );
+  }
+
+  const filteredMovies = movies.filter(movie => {
+    if (filter === "watched") return movie.watched;
+    if (filter === "unwatched") return !movie.watched;
+    return true;
+  });
+
   return (
     <div className='my-6'>
       <div>
@@ -40,23 +63,27 @@ export default function App () {
       <div className='grid grid-cols-2 justify-between mx-auto w-1/2 my-4'>
         <AddMovie onAddMovie={HandleAddMovie} />
         <span className='ml-auto'>
-          <FilterMovies />
+          <FilterMovies filter={filter} setFilter={setFilter} />
         </span>
       </div>
       <div className='my-4'>
-        <MovieStatus />
+        <MovieStatus watchedCount={wathcedCount} unwathcedCount={unwatchedCount} totalCount={totalCount} />
       </div>
       <div className='grid grid-rows gap-4'>
-        {movies.map(movie => (
-          <MovieCard
-            key={movie.id} 
-            id={movie.id}
-            title={movie.title}
-            info={movie.info}
-            genre={movie.genre}
-            onDelete={HandleDeleteMovie}
-          />
-        ))}
+        {filteredMovies.length === 0 ? (
+          <h2 className="text-center text-red-600 text-2xl mt-4">
+            No movies found!
+          </h2>
+        ) : (
+          filteredMovies.map(movie => (
+            <MovieCard
+              key={movie.id}
+              {...movie}
+              onDelete={HandleDeleteMovie}
+              onWatch={handleMarkWatched}
+            />
+          ))
+        )}
       </div>
     </div>
   )
