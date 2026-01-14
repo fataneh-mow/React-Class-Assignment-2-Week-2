@@ -99,13 +99,11 @@ export default function AddMovie ({onAddMovie}) {
                                         >
                                             Add Movie
                                         </button>
-                                        
                                     </div>
                                 </form>
                             </div>
                         </div>
                     )
-                    
                 }
             </div>
         </div>

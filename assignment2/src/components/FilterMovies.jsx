@@ -1,6 +1,6 @@
 export default function FilterMovies ({filter, setFilter}) {
     return (
-        <div className="">
+        <div>
             <form className="bg-red-100 rounded-md py-[0.1rem]">
                 <select 
                     name="filter" 

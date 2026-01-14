@@ -1,10 +1,6 @@
-import { useState } from "react";
-
 import { TbSquareRounded } from "react-icons/tb";
 import { TbSquareRoundedCheckFilled } from "react-icons/tb";
 import { MdOutlineDelete } from "react-icons/md";
-
-
 
 export default function MovieCard ({id, title, info, genre ,watched ,onDelete, onWatch}) {
     function HandleWatchMovie () {
@@ -47,7 +43,6 @@ export default function MovieCard ({id, title, info, genre ,watched ,onDelete, o
                     <MdOutlineDelete className="text-red-800" size={20} />
                 </button>
             </div>
-           
         </div>
     )
 }

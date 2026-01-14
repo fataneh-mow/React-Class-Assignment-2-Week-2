@@ -8,26 +8,25 @@ import { useState } from 'react'
 
 export default function App () {
   const [movies, setMovies] = useState([
-    // {
-    //   id: createId(),
-    //   title: "Strange Things",
-    //   info: "This film was made perfectly",
-    //   genre: "Drama",
-    //   watched: false
-    // }
+    {
+      id: createId(),
+      title: "Strange Things",
+      info: "This film was made perfectly",
+      genre: "Drama",
+      watched: false
+    }
   ])
+  
   const [filter, setFilter] = useState("All")
   
   const wathcedCount = movies.filter(movie => movie.watched).length
   const unwatchedCount = movies.filter(movie => !movie.watched).length
   const totalCount = movies.length
 
- 
   function createId() {
     if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
     return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
   }
-
 
   function HandleAddMovie(newMovie) {
     setMovies(prevMovies => [...prevMovies, newMovie]);
